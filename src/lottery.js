@@ -32,7 +32,7 @@ class Lottery {
     this.state.prize = Math.round(this.state.count * Math.random());
     if (this.state.prize !== -1) {
       this.state.totalChange =
-        (360 / this.state.count) * (this.state.prize + Math.random()) + 3600;
+        -(360 / this.state.count) * (this.state.prize + Math.random()) + 3600;
       this.rotate();
     }
   }
