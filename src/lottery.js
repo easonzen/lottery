@@ -23,6 +23,8 @@ class Lottery {
     }
   };
 
+  render = this.animationSupport(this.rotate.bind(this));
+
   constructor(el, onComplete) {
     this.el = el;
     this.onComplete = onComplete;
@@ -37,6 +39,17 @@ class Lottery {
     }
   }
 
+  animationSupport(fn) {
+    if (!window.requestAnimationFrame) {
+      return () => {
+        setTimeout(() => {
+          fn();
+        }, 17);
+      };
+    }
+    return () => requestAnimationFrame(fn);
+  }
+
   rotate() {
     this.state.angle = Math.ceil(
       this.animation.easeInOut(
@@ -49,9 +62,7 @@ class Lottery {
     this.setTransform(this.state.angle % 360);
     this.state.current++;
     if (this.state.current <= this.state.duration) {
-      setTimeout(() => {
-        this.rotate();
-      }, 17);
+      this.render();
     } else {
       this.onComplete(this.state.prize);
       this.reset();
