@@ -1,0 +1,48 @@
+.App {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: -webkit-linear-gradient(top, #ff6600, #ff6699);
+}
+
+.circle-wrap {
+  position: relative;
+  width: 287px;
+  height: 287px;
+}
+
+.circle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.pointer {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  width: 38px;
+  height: 45px;
+}
+
+.start-btn {
+  display: block;
+  width: 160px;
+  height: 38px;
+  margin-top: 20px;
+  background: #ffcc33;
+  border: 0;
+  border-radius: 3px;
+  outline: none;
+}
